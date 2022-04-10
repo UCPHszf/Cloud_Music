@@ -1,5 +1,8 @@
 import 'package:Cloud_Music/pages/discovery/widget/carousel.dart';
 import 'package:Cloud_Music/pages/discovery/widget/catalog.dart';
+import 'package:Cloud_Music/resource/data/text.dart';
+import 'package:Cloud_Music/widget/catologTitle.dart';
+import 'package:Cloud_Music/resource/config/dimension.dart';
 import 'package:Cloud_Music/utils/wrapUtil.dart';
 import 'package:Cloud_Music/widget/blankRow.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +28,15 @@ class Discovery extends StatelessWidget {
           Carousel(),
           WrapUtil.wrapInSilver(BlankRow(5)),
           PageDiscoveryCatalog(),
-          WrapUtil.wrapInSilver(BlankRow(20)),
-          Row(children: <Widget>[],)
+          CatalogTitle(
+            Text(
+              ChineseDict.recommendMusicList,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1,
+                  fontSize: DimensionConfig.textSmallMediumSize),
+            ),"更多"
+          ),
         ],
       ),
     );

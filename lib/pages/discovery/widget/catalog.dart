@@ -25,12 +25,13 @@ class PageDiscoveryCatalog extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Container(
-        height: ScreenUtil().setHeight(150),
+        height: ScreenUtil().setHeight(100),
         child: ListView.custom(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           physics: BouncingScrollPhysics(),
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: EdgeInsets.symmetric(
+              horizontal: DimensionConfig.discoveryPageCatalogHorizonSpacing),
           childrenDelegate: SliverChildBuilderDelegate((context, index) {
             return Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
