@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:Cloud_Music/entity/BannerItem.dart';
+import 'package:Cloud_Music/entity/bannerItem.dart';
 import 'package:flutter/material.dart';
-import 'package:Cloud_Music/resource/httpRequest/HttpRequest.dart';
+import 'package:Cloud_Music/resource/httpRequest/httpRequest.dart';
 
 class Carousel extends StatefulWidget {
   @override
