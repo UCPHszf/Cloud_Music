@@ -1,7 +1,15 @@
 import 'package:flutter/cupertino.dart';
 
 class WrapUtil {
-  static Widget wrapInSilver(Widget widget) {
+  static WrapUtil? _instance;
+
+  WrapUtil._internal() {
+    _instance = this;
+  }
+
+  factory WrapUtil() => _instance ?? WrapUtil._internal();
+
+  Widget wrapInSilver(Widget widget) {
     return SliverToBoxAdapter(
       child: widget,
     );
