@@ -1,13 +1,13 @@
 import 'package:Cloud_Music/resource/config/string.dart';
 
 class NumUtil {
-  static late NumUtil? _instance;
+  NumUtil._privateConstructor();
 
-  NumUtil._internal() {
-    _instance = this;
+  static final NumUtil _instance = NumUtil._privateConstructor();
+
+  static NumUtil get instance {
+    return _instance;
   }
-
-  factory NumUtil() => _instance ?? NumUtil._internal();
 
   String transferPlayCountToString(num playCount) {
     double basicScale = 1e4;

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 //icon data
-class Cloud_Music_Icon {
+class NetEaseMusicIcon {
   static const IconData music = IconData(0xe696, fontFamily: 'iconfont');
   static const IconData unorderedlist = IconData(0xe7f4, fontFamily: 'iconfont');
   static const IconData headset = IconData(0xe80b, fontFamily: 'iconfont');

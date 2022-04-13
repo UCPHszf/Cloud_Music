@@ -5,17 +5,17 @@ import 'package:Cloud_Music/widget/blankRow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PageDiscoveryCatalog extends StatelessWidget {
+class RecommendCatalog extends StatelessWidget {
   List _catalogs = [
-    {'icon': Cloud_Music_Icon.date_1, 'text': '每日推荐'},
-    {'icon': Cloud_Music_Icon.personalFM, 'text': '私人FM'},
-    {'icon': Cloud_Music_Icon.musicList, 'text': '歌单'},
-    {'icon': Cloud_Music_Icon.ranking, 'text': '排行榜'},
-    {'icon': Cloud_Music_Icon.liveStreaming, 'text': '直播'},
-    {'icon': Cloud_Music_Icon.digitalAlbum, 'text': '数字专辑'},
-    {'icon': Cloud_Music_Icon.sleepAid, 'text': '助眠解压'},
-    {'icon': Cloud_Music_Icon.karaokeRoom, 'text': '歌房'},
-    {'icon': Cloud_Music_Icon.gameZone, 'text': '游戏专区'}
+    {'icon': NetEaseMusicIcon.date_1, 'text': '每日推荐'},
+    {'icon': NetEaseMusicIcon.personalFM, 'text': '私人FM'},
+    {'icon': NetEaseMusicIcon.musicList, 'text': '歌单'},
+    {'icon': NetEaseMusicIcon.ranking, 'text': '排行榜'},
+    {'icon': NetEaseMusicIcon.liveStreaming, 'text': '直播'},
+    {'icon': NetEaseMusicIcon.digitalAlbum, 'text': '数字专辑'},
+    {'icon': NetEaseMusicIcon.sleepAid, 'text': '助眠解压'},
+    {'icon': NetEaseMusicIcon.karaokeRoom, 'text': '歌房'},
+    {'icon': NetEaseMusicIcon.gameZone, 'text': '游戏专区'}
   ];
 
   var width = ScreenUtil().setWidth(DimensionConfig.defaultBasicIconWidth);
@@ -30,8 +30,6 @@ class PageDiscoveryCatalog extends StatelessWidget {
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           physics: BouncingScrollPhysics(),
-          padding: EdgeInsets.symmetric(
-              horizontal: DimensionConfig.discoveryPageCatalogHorizonSpacing),
           childrenDelegate: SliverChildBuilderDelegate((context, index) {
             return Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
@@ -58,10 +56,10 @@ class PageDiscoveryCatalog extends StatelessWidget {
                           ),
                         ],
                       ),
-                      BlankRow(10),
+                      BlankRow(DimensionConfig.musicListPicTextSpacing),
                       Text('${_catalogs[index]['text']}',
                           style: TextStyle(
-                              color: ColorConfig.icon_text_bg,
+                              color: ColorConfig.icon_text,
                               fontSize: DimensionConfig.textSmallSize))
                     ],
                   ),

@@ -10,11 +10,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Home extends StatelessWidget {
   final List _naviTabs = [
-    {'icon': Cloud_Music_Icon.search, 'text': '发现'},
-    {'icon': Cloud_Music_Icon.podcast, 'text': '播客'},
-    {'icon': Cloud_Music_Icon.music, 'text': '我的'},
-    {'icon': Cloud_Music_Icon.friend, 'text': '关注'},
-    {'icon': Cloud_Music_Icon.sqaure, 'text': '广场'}
+    {'icon': NetEaseMusicIcon.search, 'text': '发现'},
+    {'icon': NetEaseMusicIcon.podcast, 'text': '播客'},
+    {'icon': NetEaseMusicIcon.music, 'text': '我的'},
+    {'icon': NetEaseMusicIcon.friend, 'text': '关注'},
+    {'icon': NetEaseMusicIcon.sqaure, 'text': '广场'}
   ];
 
   final List<Widget> _pages = [

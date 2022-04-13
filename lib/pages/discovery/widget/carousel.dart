@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:Cloud_Music/entity/bannerItem.dart';
+import 'package:Cloud_Music/resource/config/dimension.dart';
+import 'package:Cloud_Music/resource/config/string.dart';
 import 'package:flutter/material.dart';
 import 'package:Cloud_Music/resource/httpRequest/httpRequest.dart';
 
@@ -22,7 +24,8 @@ class _carouselState extends State<Carousel> {
     // var d = new Dio(new BaseOptions(baseUrl: 'http://192.168.8.100:3000/'));
     // var tmp = d.get('banner', queryParameters: {'type': 2});
     // print(tmp);
-    httpRequest.get('banner', queryParameters: {'type': 2}).then((response) {
+    httpRequest.get(StringResource.urlBanner, queryParameters: {'type': 2}).then(
+        (response) {
       List banners = response.data['banners']
           .map((banner) => BannerItem(pic: banner['pic']))
           .toList();
@@ -77,7 +80,7 @@ class _carouselState extends State<Carousel> {
                       .map((item) => Container(
                             margin: EdgeInsets.all(10.0),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(5.0),
+                              borderRadius: BorderRadius.circular(DimensionConfig.smallBorderRadius),
                               child: Image.network(
                                 item.pic,
                                 fit: BoxFit.cover,
