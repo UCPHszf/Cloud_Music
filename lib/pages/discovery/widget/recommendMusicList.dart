@@ -18,6 +18,8 @@ class RecommendMusicList extends StatefulWidget {
 
 class _RecommendMusicListState extends State<RecommendMusicList> {
   List _musicLists = [];
+  List _slidingMusicList = [];
+  List _stationaryMusicList = [];
 
   @override
   void initState() {
@@ -33,12 +35,23 @@ class _RecommendMusicListState extends State<RecommendMusicList> {
       setState(() {
         _musicLists = musicLists;
       });
-      print(_musicLists[0]);
+    }).then((_) {
+      setState(() {
+        _slidingMusicList = _musicLists.sublist(0, 25);
+        _stationaryMusicList = _musicLists.sublist(25);
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    print(_slidingMusicList.length);
+    List<Widget> recommendMusicList = [];
+    if (_slidingMusicList.length != 0)
+      recommendMusicList.add(SlidingMusicList(_slidingMusicList));
+    recommendMusicList.addAll(_stationaryMusicList.map((musicList) {
+      return MusicListWithCoverAndTitle(musicList, Colors.transparent);
+    }).toList());
     return SliverToBoxAdapter(
         child: Container(
       child: Catalog(
@@ -58,25 +71,12 @@ class _RecommendMusicListState extends State<RecommendMusicList> {
               )),
           Container(
             child: ListView.custom(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              physics: BouncingScrollPhysics(),
-              padding: EdgeInsets.symmetric(
-                  horizontal: DimensionConfig.musicListPicSpacing),
-              childrenDelegate: SliverChildBuilderDelegate((context, index) {
-                Color? picPrimaryColor;
-                // getColorFromUrl(musicList.picUrl)
-                //     .then((color) => picPrimaryColor = color);
-                if (picPrimaryColor != null) {
-                  return MusicListWithCoverAndTitle(
-                      _musicLists[index], picPrimaryColor);
-                } else {
-                  return MusicListWithCoverAndTitle(
-                      _musicLists[index], Colors.transparent);
-                }
-              }, childCount: _musicLists.length),
-              semanticChildCount: _musicLists.length,
-            ),
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                physics: BouncingScrollPhysics(),
+                padding: EdgeInsets.symmetric(
+                    horizontal: DimensionConfig.musicListPicSpacing),
+                childrenDelegate: SliverChildListDelegate(recommendMusicList)),
             height:
                 ScreenUtil().setHeight(DimensionConfig.catalogContentHeight),
           )),
